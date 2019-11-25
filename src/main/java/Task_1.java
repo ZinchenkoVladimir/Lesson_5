@@ -1,5 +1,3 @@
-import com.sun.tools.javac.util.List;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -8,18 +6,16 @@ import static jdk.nashorn.internal.objects.NativeSet.add;
 public class Task_1 {
 
     public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>(
 
-        ArrayList<String> list = new ArrayList<String>(
                 Arrays.asList("1",
                               "2",
-                              "3"));
-                List.of("4",
-                        "5",
-                        "6");
-        )
+                              "3")
+        );
+
         {
             {
-                add(0,"Course");
+                add(0, "Courses");
                 add(1,"Automation");
                 add(2,"Quality");
                 add(3,"Assurance");
