@@ -1,56 +1,78 @@
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class Task_6 {
 
+    private String start = "The longest:";
 
+    @NotNull
+    @Contract(" -> new")
+    private ArrayList<String> array_list_creation(){
 
-    public static List<String> largestStringArray = new ArrayList<>();
-    public static List<String> arr = new ArrayList<>();
-
-    public static void main(String... arg) {
-        arr.add("Ivan");
-        arr.add("Petro");
-        arr.add("Taras");
-        arr.add("Stepan");
-        arr.add("Vladislav");
-        arr.add("Vitalii");
-        arr.add("Vally");
-        arr.add("Petrovich");
-        arr.add("Ivanovich");
-        arr.add("Valentina");
-
-        String longestString = findLongestString(arr);
-        largestStringArray = findDuplicateStrings(arr, longestString);
-        printList(largestStringArray);
-
+        return new ArrayList<>(
+                Arrays.asList(
+                        "Lamborghini",
+                        "Ford",
+                        "Dodge",
+                        "Porsche",
+                        "BMW",
+                        "Citroen",
+                        "Renault",
+                        "Zaporozhets",
+                        "Volvo",
+                        "Skoda"
+                )
+        );
     }
 
-    private static String findLongestString(List<String> list) {
+    private String the_longest_string(){
 
-        int index = 0;
-        int longest = 0;
-        for (int i = 0; i < arr.size(); i++) {
-            if (arr.get(i).length() > longest) {
-                longest = arr.get(i).length();
-                index = i;
+        int number = 0;
+        int length = 0;
+        int i = 0;
+        while (i < array_list_creation().size()){
+            if (array_list_creation().get(i).length() > length){
+                length = array_list_creation().get(i).length();
+                number = i;
             }
+            i++;
         }
-        return list.get(index);
+        return array_list_creation().get(number);
     }
 
-    private static List<String> findDuplicateStrings (List<String> list, String value){
-        List<String> result = new ArrayList<>();
-        for (int i =0; i < arr.size(); i++){
-            if (arr.get(i).length() == value.length()){
-                result.add(arr.get(i));
+    @NotNull
+    private ArrayList<String> duplicated_strings(){
+
+        ArrayList<String> array = new ArrayList<>();
+        int i = 0;
+        while (i < array_list_creation().size()){
+            if (array_list_creation().get(i).length() == the_longest_string().length()){
+                array.add(array_list_creation().get(i));
             }
+            i++;
         }
-        return result;
+        return array;
     }
-    private static void printList(List<String> list){
-        for (int i = 0; i<list.size(); i++){
-            System.out.println(list.get(i));
+
+    private void print(){
+
+        int iterator = 0;
+        System.out.println(start);
+        while (iterator < duplicated_strings().size()){
+            System.out.println(duplicated_strings().get(iterator));
+            iterator++;
         }
+    }
+
+    public static void main(String[] arg) {
+
+        Task_6 task6 = new Task_6();
+        task6.array_list_creation();
+        task6.the_longest_string();
+        task6.duplicated_strings();
+        task6.print();
     }
 }
