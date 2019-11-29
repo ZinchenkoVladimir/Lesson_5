@@ -1,3 +1,6 @@
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -5,6 +8,8 @@ public class Task_5 {
 
     private String array_size = "The size of the ArrayList is: ";
 
+    @NotNull
+    @Contract(" -> new")
     private ArrayList<String> array_list_creation(){
 
         return new ArrayList<>(
