@@ -3,7 +3,10 @@ import java.util.Arrays;
 
 public class Task_5 {
 
+    private String array_size = "The size of the ArrayList is: ";
+
     private ArrayList<String> array_list_creation(){
+
         return new ArrayList<>(
                 Arrays.asList(
                         "раз",
@@ -15,17 +18,19 @@ public class Task_5 {
         );
     }
 
-    public static void main(String[] args) {
-        ArrayList<String> arr = new ArrayList<String>();
-        arr.add("String 1 ");
-        arr.add("String 2 ");
-        arr.add("String 3 ");
-        arr.add("String 4 ");
-        arr.add("String 5 ");
-        int size = arr.size();
-        System.out.println("size of array list: " + size);
-        for (int i = 0; i < arr.size(); i++) {
-            System.out.println(arr.get(i));
+    private void print_arraylist(){
+
+        int i = 0;
+        while (i < array_list_creation().size()){
+            System.out.println(array_list_creation().get(i));
+            i++;
         }
+    }
+
+    public static void main(String[] args) {
+
+        Task_5 task5 = new Task_5();
+        System.out.println(task5.array_size + task5.array_list_creation().size());
+        task5.print_arraylist();
     }
 }
